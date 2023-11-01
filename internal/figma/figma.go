@@ -35,6 +35,8 @@ func FetchFigmaDesign() ([]byte, error) {
 	return byteVal, nil
 }
 
+
+
 func PrettyPrintJSON(data []byte) (string, error) {
 	var prettyJSON bytes.Buffer
 	err := json.Indent(&prettyJSON, data, "", "  ")

@@ -1,6 +1,7 @@
 package main
 
 import (
+	converter "fidi/internal/divi"
 	"fidi/internal/figma"
 	"fmt"
 )
@@ -13,6 +14,13 @@ func main() {
 		fmt.Println("Error fetching Figma design:", err)
 		return
 	}
-	val, _ := figma.PrettyPrintJSON(figmaData)
-	fmt.Println(val)
+	
+	result, err := converter.ConvertToFigmaLayout(figmaData)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println(result)
 }
